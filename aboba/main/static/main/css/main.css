@@ -1,0 +1,151 @@
+@font-face {
+    font-family: 'Diablo';
+    src: url('../fonts/diablofont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    background: #181818;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+a {
+   text-decoration: none;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #222;
+    width: 100%;
+    flex: 0 1 90px;
+    padding: 20px 0;
+    margin: 0;
+    border-bottom: 1px solid #292929;
+}
+
+main {
+    flex: 1 1;
+    min-height: calc(100vh - 180px);
+}
+
+.main-wrap {
+    height: 100%;
+    display: flex;
+}
+
+footer {
+    text-align: right;
+    padding-top: 5px;
+    flex: 0 1 90px;
+    font-style: italic;
+    color: #fff;
+    background-color: #222;
+    border-top: 1px solid #292929;
+}
+
+.sidebar {
+    font-family: 'Diablo';
+    flex: 0 1 20%;
+    background: #181818;
+    color: #fff;
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Diablo';
+}
+
+.sidebar-content {
+}
+
+.content {
+    padding: 40px 0;
+    flex: 1 1;
+    max-height: 100%;
+}
+
+.site-header {
+    font-family: 'Diablo';
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 0;
+    color: #bb2420;
+    text-shadow: 3px 3px 3px #000000;
+}
+
+.sidebar img {
+    width: 80px;
+    float: left;
+}
+
+.sidebar h3 {
+    margin-top: 50px;
+    font-size: 28px;
+    color: #bb2420;
+    text-shadow: 3px 3px 3px #000000;
+}
+
+.sidebar ul {
+    padding: 0;
+    list-style: none
+}
+
+.sidebar ul li {
+    color: #feedc1;
+    display: block;
+    margin-top: 25px;
+    transition: transform .6s;
+    text-decoration: none;
+}
+
+.sidebar ul li:hover, .sidebar ul a:hover {
+    color: #b06747;
+    transform: scale(1.05);
+}
+
+.content .home {
+    border-radius: 12px;
+    background-image: url("../img/diablo_fon.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 100%;
+    overflow-y: scroll;
+    color: #fff;
+    padding-top: 30px;
+    text-align: center;
+    height: 100%;
+}
+
+@media screen and (min-width: 1920px AND max-height: 700px) {
+
+}
+
+.content .home h1 {
+    font-size: 50px
+}
+.content .home p {
+    max-size: 400px, margin: 20px auto
+}
