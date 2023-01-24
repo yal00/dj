@@ -1,0 +1,271 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="content-wrapper bg-vacancy">
+        <div class="scroll-block">
+            <div class="title-block">
+                <h1 class="title-page white-wrapper">{{ title }}</h1>
+            </div>
+            <div class="vacancy-grid">
+                {% if not data %}
+                    <div class="vacancy-empty">
+                        <span>Вакансий не найдено</span>
+                    </div>
+                {% endif %}
+                {% for vac in data %}
+                <div class="vacancy-block white-wrapper">
+                    <h4 class="vacancy-title"> {{ vac.name }} </h4>
+                    <div class="vacancy-description">
+                        <strong>Описание:</strong>
+                        <span>{{ vac.description|safe }}</span>
+                    </div>
+                    <div class="vacancy-skills">
+                        <strong>Скиллы:</strong>
+                        <span>{{ vac.key_skills }}</span>
+                    </div>
+                    <div class="vacancy-employer">
+                        <strong>Работодатель:</strong>
+                        <span>{{ vac.employer }}</span>
+                    </div>
+                    <div class="vacancy-salary">
+                        <strong>Оклад:</strong>
+                        <span>{{ vac.salary }} ₽</span>
+                    </div>
+                    <div class="vacancy-area">
+                        <strong>Город:</strong>
+                        <span>{{ vac.area }}</span>
+                    </div>
+                    <div class="vacancy-published_at">
+                        <ul>
+                            <li>
+                                <strong>Дата:</strong>
+                                <span>{{ vac.published_at.date }}</span>
+                            </li>
+                            <li>
+                                <strong>Время:</strong>
+                                <span>{{ vac.published_at.time }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+<h4 class="white-wrapper">Список самых популярных скиллов по годам</h4>
+<div class="table-flex">
+<h4 class="white-wrapper">2015</h4>
+<table>
+        <tbody>
+    <tr>
+    <td>Unity</td><td>6</td></tr>
+    <tr>
+    <td>Разработка компьютерных Игр</td><td>6</td></tr>
+    <tr>
+    <td>iOS</td><td>5</td></tr>
+    <tr>
+    <td>Android</td><td>4</td></tr>
+    <tr>
+    <td>C++</td><td>4</td></tr>
+    <tr>
+    <td>С#</td><td>3</td></tr>
+    <tr>
+    <td>ООП</td><td>3</td></tr>
+    <tr>
+    <td>Game Programming</td><td>2</td></tr>
+    <tr>
+    <td>Git</td><td>2</td></tr>
+    <tr>
+    <td>Работа на дому</td><td>2</td></tr>
+        </tbody>
+</table>
+
+<h4 class="white-wrapper">2016</h4>
+<table>
+    <tbody>
+<tr>
+<td>Unity</td><td>167</td></tr>
+<tr>
+<td>C++</td><td>144</td></tr>
+<tr>
+<td>C#</td><td>142</td></tr>
+<tr>
+<td>ООП</td><td>137</td></tr>
+<tr>
+<td>Java</td><td>125</td></tr>
+<tr>
+<td>Git</td><td>110</td></tr>
+<tr>
+<td>.NET Framework</td><td>107</td></tr>
+<tr>
+<td>Английский язык</td><td>104</td></tr>
+<tr>
+<td>Adobe Photoshop</td><td>104</td></tr>
+<tr>
+<td>MS Visual Studio</td><td>102</td></tr>
+    </tbody>
+</table>
+</div>
+<div class="table-flex">
+<h4 class="white-wrapper">2017</h4>
+<table>
+    <tbody>
+<tr>
+<td>Unity</td><td>96</td></tr>
+<tr>
+<td>C#</td><td>69</td></tr>
+<tr>
+<td>C++</td><td>41</td></tr>
+<tr>
+<td>Game Programming</td><td>30</td></tr>
+<tr>
+<td>Git</td><td>29</td></tr>
+<tr>
+<td>Java</td><td>28</td></tr>
+<tr>
+<td>JavaScript</td><td>25</td></tr>
+<tr>
+<td>ООП</td><td>24</td></tr>
+<tr>
+<td>3D</td><td>21</td></tr>
+<tr>
+<td>Android</td><td>20</td></tr>
+    </tbody>
+</table>
+
+<h4 class="white-wrapper">2018</h4>
+<table >
+    <tbody>
+<tr>
+<td>Unity</td><td>175</td></tr>
+<tr>
+<td>C#</td><td>150</td></tr>
+<tr>
+<td>JavaScript</td><td>63</td></tr>
+<tr>
+<td>Git</td><td>61</td></tr>
+<tr>
+<td>Game Programming</td><td>52</td></tr>
+<tr>
+<td>Разработка компьютерных Игр</td><td>51</td></tr>
+<tr>
+<td>C++</td><td>47</td></tr>
+<tr>
+<td>Android</td><td>39</td></tr>
+<tr>
+<td>Английский язык</td><td>37</td></tr>
+<tr>
+<td>ООП</td><td>31</td></tr>
+    </tbody>
+</table>
+</div>
+<div class="table-flex">
+<h4 class="white-wrapper">2019</h4>
+<table>
+    <tbody>
+<tr>
+<td>Unity</td><td>339</td></tr>
+<tr>
+<td>C#</td><td>290</td></tr>
+<tr>
+<td>Git</td><td>118</td></tr>
+<tr>
+<td>Android</td><td>106</td></tr>
+<tr>
+<td>iOS</td><td>101</td></tr>
+<tr>
+<td>ООП</td><td>101</td></tr>
+<tr>
+<td>C++</td><td>96</td></tr>
+<tr>
+<td>Game Programming</td><td>80</td></tr>
+<tr>
+<td>Adobe Photoshop</td><td>61</td></tr>
+<tr>
+<td>Java</td><td>57</td></tr>
+    </tbody>
+</table>
+
+<h4 class="white-wrapper">2020</h4>
+<table>
+    <tbody>
+<tr>
+<td>Unity</td><td>414</td></tr>
+<tr>
+<td>C#</td><td>329</td></tr>
+<tr>
+<td>Git</td><td>147</td></tr>
+<tr>
+<td>Android</td><td>139</td></tr>
+<tr>
+<td>iOS</td><td>118</td></tr>
+<tr>
+<td>ООП</td><td>108</td></tr>
+<tr>
+<td>C++</td><td>83</td></tr>
+<tr>
+<td>Работа в команде</td><td>70</td></tr>
+<tr>
+<td>Английский язык</td><td>61</td></tr>
+<tr>
+<td>JavaScript</td><td>57</td></tr>
+    </tbody>
+</table>
+</div>
+<div class="table-flex">
+<h4 class="white-wrapper">2021</h4>
+<table>
+    <tbody>
+<tr>
+<td>Unity</td><td>331</td></tr>
+<tr>
+<td>C#</td><td>260</td></tr>
+<tr>
+<td>Git</td><td>119</td></tr>
+<tr>
+<td>ООП</td><td>112</td></tr>
+<tr>
+<td>Android</td><td>91</td></tr>
+<tr>
+<td>iOS</td><td>78</td></tr>
+<tr>
+<td>Английский язык</td><td>61</td></tr>
+<tr>
+<td>C++</td><td>46</td></tr>
+<tr>
+<td>Adobe Photoshop</td><td>37</td></tr>
+<tr>
+<td>Game Programming</td><td>35</td></tr>
+    </tbody>
+</table>
+
+<h4 class="white-wrapper">2022</h4>
+<table>
+    <tbody>
+    <tr>
+    <td>Unity</td><td>54</td></tr>
+    <tr>
+    <td>C#</td><td>51</td></tr>
+    <tr>
+    <td>Git</td><td>34</td></tr>
+    <tr>
+    <td>Game Programming</td><td>25</td></tr>
+    <tr>
+    <td>Gamedev</td><td>23</td></tr>
+    <tr>
+    <td>Android</td><td>23</td></tr>
+    <tr>
+    <td>Разработка компьютерных Игр</td><td>20</td></tr>
+    <tr>
+    <td>Преподаватель</td><td>20</td></tr>
+    <tr>
+    <td>Unity 3D</td><td>17</td></tr>
+    <tr>
+    <td>ООП</td><td>16</td></tr>
+    </tbody>
+</table>
+</div>

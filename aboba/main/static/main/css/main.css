@@ -1,0 +1,553 @@
+@font-face {
+    font-family: 'Diablo';
+    src: url('../fonts/diablofont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+/* ------------------------------------------------- */
+/* scrollbar */
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #222;
+  border-radius: 10px;
+}
+
+/* ------------------------------------------------- */
+/* base style */
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+body {
+    background: #181818;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+a {
+   text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Diablo';
+}
+
+/* ------------------------------------------------- */
+/* header */
+
+header {
+    position: relative;
+    width: 100%;
+    flex: 0 0 60px;
+    text-align: center;
+    margin: 0;
+    line-height: 1;
+    border-bottom: 2px solid #000000;
+    background: #222;
+}
+
+.site-header {
+    padding-top: 12px;
+    font-family: 'Diablo';
+    line-height: 1;
+    font-size: 42px;
+    margin-bottom: 0;
+    color: #bb2420;
+    text-shadow: 3px 3px 3px #000000;
+}
+
+@media (max-width: 380px) {
+    .site-header {
+       font-size: 36px;
+    }
+}
+
+/* menu */
+
+.header-nav {
+    position: absolute;
+    width: 100%;
+    height: 58px;
+}
+
+.menuToggle
+{
+  display: block;
+  position: relative;
+  top: 17px;
+
+  z-index: 1;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+
+  transition: color 0.3s ease;
+}
+
+.menuToggle a:hover
+{
+  color: tomato;
+}
+
+.menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+.menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: #bb2420;
+  box-shadow: 3px 3px 3px #000000;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+.menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+.menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+.menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+}
+
+.menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+.menu
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100vh;
+  margin: 0 0 0 -50px;
+  padding: 20px;
+  padding-top: 125px;
+  padding-bottom: 30px;
+  padding-left: 50px;
+
+  background: #181818;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.menu .sidebar {
+  padding: 0px;
+}
+
+.menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+@media (min-width: 1025px) {
+    .menuToggle {
+        display: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .menu {
+       width: 300px;
+    }
+}
+
+/* ------------------------------------------------- */
+/* sidebar */
+
+.sidebar {
+    font-family: 'Diablo';
+    flex: 0 1 230px;
+    background: #181818;
+    color: #fff;
+    padding: 20px 0 0 20px;
+}
+
+.sidebar h3 {
+    font-size: 28px;
+    color: #bb2420;
+    text-shadow: 3px 3px 3px #000000;
+}
+
+.sidebar ul {
+    padding: 0;
+    list-style: none
+}
+
+.sidebar ul li {
+    color: #feedc1;
+    display: block;
+    margin-top: 25px;
+    transition: transform .6s;
+    text-decoration: none;
+}
+
+.sidebar ul li:hover, .sidebar ul a:hover {
+    color: #b06747;
+    transform: scale(1.05);
+}
+
+@media (max-width: 1025px) {
+    main .sidebar {
+        display: none;
+    }
+}
+
+/* ------------------------------------------------- */
+/* content */
+
+main {
+    flex: 1 1;
+    min-height: calc(100vh - 95px);
+}
+
+.main-wrap {
+    padding: 15px 0;
+    height: 100%;
+    display: flex;
+}
+
+.white-wrapper {
+    color: #000;
+    margin: 0 auto;
+    padding: 10px 50px;
+    background: rgba(222, 222, 222, 0.5);
+    border-radius: 10px;
+}
+
+.title-block {
+    text-align: center;
+    margin: 0 auto 15px;
+}
+
+.title-page {
+    margin: 0;
+    display: inline-block;
+    font-size: 46px;
+    line-height: 1.2;
+}
+
+.main-content {
+    flex: 1 1;
+    max-height: 100%;
+}
+
+.main-content .content-wrapper {
+    border-radius: 12px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 100%;
+    color: #fff;
+    padding: 5px;
+    padding-left: 0;
+    height: 100%;
+}
+
+.scroll-block {
+    overflow-y: scroll;
+    height: 100%;
+    padding: 20px;
+}
+
+.home-grid .home-block {
+    padding: 20px 30px;
+}
+
+.home-block-content {
+    font-size: 17px;
+}
+
+.bg-home {
+    background-image: url("../img/diablo_fon.jpg");
+}
+
+.bg-vacancy {
+    background-image: url("../img/fon_vacancy.jpg");
+}
+
+.bg-demand {
+    background-image: url("../img/fon_demand.jpg");
+    background-position: 20% center !important;
+}
+
+.bg-geography {
+    background-image: url("../img/fon_geo.jpg");
+}
+
+.bg-skills {
+    background-image: url("../img/fon_skills.jpg");
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.main-content .content-wrapper p {
+    max-size: 400px, margin: 20px auto
+}
+
+.vacancy-block {
+   margin-bottom: 15px;
+   padding: 15px;
+}
+
+.vacancy-empty {
+    text-align: center;
+    font-family: 'Diablo';
+}
+
+.vacancy-empty span {
+    display: inline-block;
+    font-size: 36px;
+    color: #000;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+@media (max-width: 1025px) {
+    .title-page {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title-page {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .title-page.white-wrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* ------------------------------------------------- */
+/*  table  */
+
+.table-block {
+    text-align: center;
+}
+.table-block h4 {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.table-flex {
+    display: flex;
+    column-gap: 20px;
+    margin-bottom: 20px;
+}
+
+.table-flex table {
+    margin-bottom: 0;
+}
+
+.table-flex h4 {
+    margin-bottom: 0;
+    writing-mode:vertical-rl;
+    float: right;
+    text-orientation: upright;
+}
+
+.table-flex table {
+    flex: 1 1;
+}
+
+table {
+  margin-bottom: 40px;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+  border-radius: 10px;
+  background-color: rgba(34, 34, 34, 0.5);
+}
+
+thead ,tbody {
+  width: 100%;
+}
+
+thead th {
+    font-weight: 400;
+}
+
+table tr {
+    color: #fff;
+    font-size: 14px;
+}
+
+th,td {
+    padding: 10px;
+    border-bottom: 1px solid #fff;
+}
+
+tr:last-child td {
+    border: 0;
+}
+
+/* ------------------------------------------------- */
+/*  chart  */
+
+.chart-block {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.chart-block h4 {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.chart-image {
+    width: 100%;
+    height: 500px;
+}
+
+.chart-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center 0;
+}
+
+/* ------------------------------------------------- */
+/* vacancy */
+
+.vacancy-block {
+    font-size: 17px;
+    padding: 30px 50px;
+    background: rgba(222, 222, 222, 0.7);
+}
+
+.vacancy-block > * {
+    margin-bottom: 10px;
+}
+
+.vacancy-block .vacancy-title {
+    margin-bottom: 20px;
+}
+
+.vacancy-block strong {
+    font-size: 18px;
+}
+
+
+.vacancy-published_at li span, .vacancy-salary span {
+   font-weight: 600;
+}
+
+/* ------------------------------------------------- */
+/* footer */
+
+footer {
+    text-align: right;
+    font-size: 14px;
+    padding: 10px;
+    flex: 0 0 35px;
+    font-family: cursive;
+    color: #feedc1;
+    background-color: #222;
+    border-top: 2px solid #000000;
+}
+

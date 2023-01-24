@@ -1,0 +1,32 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="content-wrapper bg-home">
+        <div class="scroll-block">
+            <div class="title-block">
+                <h1 class="title-page white-wrapper">{{ title }}</h1>
+            </div>
+            <div class="home-grid">
+                {% for block in data %}
+                    <div class="home-block white-wrapper">
+                        <h2>{{ block.title }}</h2>
+                        <div class="home-block-content">
+                            {% if block.text %}
+                                {{block.text|safe}}
+                            {% endif %}
+                            {% if block.list %}
+                                <h4>{{ block.list.title }}</h4>
+                                {% for el in block.list.elements %}
+                                    <li>{{ el }}</li>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

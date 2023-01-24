@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="content-wrapper bg-geography">
+        <div class="scroll-block">
+            <div class="title-block">
+                <h1 class="title-page white-wrapper">{{ title }}</h1>
+            </div>
+            <div class="table-block">
+                {% for table in data %}
+                    {{ table.html_table|safe }}
+                {% endfor %}
+            </div>
+            {% for table in data %}
+                {% for chart in table.chart2_set.all %}
+                    <div class="chart-block">
+                        <h4 class="white-wrapper">{{ chart.title }}</h4>
+                        <div class="chart-image horiz">
+                            <img src="{{ chart.image.url }}" alt="">
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
